@@ -345,7 +345,7 @@
 <h1 class="cover-title">人生决策<br/>权重工具</h1>
 <p class="cover-quote-author">— 基于价值观的决策科学</p>
 <p class="cover-quote">"在每一个重要的十字路口，<br/>你做出的选择，都在塑造未来的轨迹。"</p>
-<p class="cover-desc">列出两个选项，按经济、成长、情绪、稳定、自我一致等维度打分。</p>
+<p class="cover-desc">面对工作、感情、留学等重要选择，列出两个方案，从多个维度进行分析，让复杂的决定变得更清晰。</p>
 <p class="cover-meta">大约需要 <strong>3 分钟</strong> 完成。</p>
 <button class="btn-primary" onclick="startApp()">开始探索 →</button>
 </div>
@@ -769,8 +769,8 @@
     ctx.scale(dpr, dpr);
 
     const W = size, H = size;
-    const cx = W / 2, cy = H / 2, R = Math.min(W, H) * 0.34;
-    const n = DIMENSIONS.length;
+    const cx = W / 2, cy = H / 2, R = Math.min(W, H) * 0.28;
+    const labelOffset = Math.min(W, H) * 0.12;    const n = DIMENSIONS.length;
     ctx.clearRect(0, 0, W, H);
 
     const angles = DIMENSIONS.map((_, i) => (Math.PI * 2 * i / n) - Math.PI / 2);
@@ -829,7 +829,7 @@
     ctx.textBaseline = 'middle';
     DIMENSIONS.forEach((dim, i) => {
       const a = angles[i];
-      const labelR = R + 42;
+      const labelR = R + labelOffset;
       const x = cx + labelR * Math.cos(a), y = cy + labelR * Math.sin(a);
       const text = dim.label.replace(/[\u{1F000}-\u{1FFFF}]|[\u2600-\u27FF]/gu, '').trim();
       ctx.fillText(text, x, y);
